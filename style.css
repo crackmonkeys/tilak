@@ -1,0 +1,20 @@
+/* center list and searchbar it 100% wide */ 
+
+
+input {
+    width: 100%; 
+}
+
+li {
+    text-align: center;
+    list-style: none;
+}
+
+#searchbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
