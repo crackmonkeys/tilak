@@ -15,12 +15,42 @@
 
 
     <body>
-        <input id="filter" />
+        <input id="search"  placeholder="search for a product"/>
         <div id="searchbar"> 
-           
-
             <ul id="list"></ul> 
+            
             <script src="list.js"></script>
+            <script>
+               
+                const liElements = list.querySelectorAll('li');
+                const stringList = Array.from(liElements).map(li => li.textContent);
+        
+                function narrowDownList(stringList, characters) {
+                    const narrowedDownList = [];
+                    for (const string of stringList) {
+                    for (let i = 0; i < string.length - characters.length + 1; i++) {
+                        if (string.substring(i, i + characters.length) === characters) {
+                        narrowedDownList.push(string);
+                        break;
+                        }
+                    }
+                    }
+                    return narrowedDownList;
+                }
+        
+                search.addEventListener('input', event => {
+                    const characters = event.target.value;
+                    const narrowedDownList = narrowDownList(stringList, characters);
+        
+                    list.innerHTML = '';  // Clear the existing list
+                    for (const string of narrowedDownList) {
+                    const li = document.createElement('li');
+                    li.textContent = string;
+                    list.appendChild(li);
+                    }
+                });
+            </script>
+            
         </div>
 
 
