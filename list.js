@@ -26,7 +26,7 @@ function addProductNames(products) {
   makeList(products);
 }
 
-// Example usage
+
 products =[  
 { name: 'PEARS BOSC/CORELLA[KG]' ,	 plu: '10014' }, 
 { name: 'BRUSSEL SPROUTS [KG]' ,	 plu: '10842' }, 
